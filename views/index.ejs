@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>EJS Template ismerkedés</title>
+</head>
+
+<body>
+    <h1> EJS Template példakód</h1>
+    <h2>Telefonhívások listája JSON állományból</h2>
+    <% for( let hivas of hivasok) {
+        let hossz = hivas.vegeOra * 3600 + hivas.vegePerc * 60 + hivas.vegeMp
+        hossz -= ( hivas.kezdOra * 3600 + hivas.kezdPerc * 60 + hivas.kezdMp) %>
+    <div style="margin-top: 5px; width: 222px; background-color: <%= hossz > 180 ? 'crimson' : 'beige' %>;" >
+        <%= hivas.kezdOra %>:
+        <%= hivas.kezdPerc %>:
+        <%= hivas.kezdMp %> -
+        <%= hivas.vegeOra %>:
+        <%= hivas.vegePerc %>:
+        <%= hivas.vegeMp %> (<%= hossz %>sec)
+    </div>
+    <% } %>
+
+</body>
+
+</html>
